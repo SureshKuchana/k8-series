@@ -1,0 +1,20 @@
+# develop YAML file specifically k8.
+# k8 uses YAML files as input for the creation of objects such as PODS, Replicas, Deployments, Services etc.
+# A K8 definition file always contains  4 top level fields
+# the apiVersion, kind, metadata, spec
+# apiVersion : version of the k8 api we're using to create the object. v1
+# kind : refers to kind of object we are trying to create, in this case is POD
+# some other possible values here could be ReplicaSet | Deployment | Service
+# metadata : is data about the object like its name, labels is dictionary etc.
+# spec : is a dictionary so add a property under it called containers, which is a list or a array
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+      app: myapp
+      tier: frontend
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
